@@ -1,0 +1,6 @@
+@MyAnnuaireAPI_HostAddress = http://localhost:5151
+
+GET {{MyAnnuaireAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
