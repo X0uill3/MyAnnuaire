@@ -12,4 +12,5 @@ public class VilleDto
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Pays { get; set; } = string.Empty;
+    public int PaysId { get; set; } 
 }

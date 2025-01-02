@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using MyAnnuaireModel.Context;
 using MyAnnuaireModel.Entities;
 
-namespace MyAnnuaireAPI
+namespace CaveManagerAPI
 {
     public class Program
     {

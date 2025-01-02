@@ -16,5 +16,5 @@ public class SalarieDto
     public string TelephoneFixe { get; set; } = string.Empty;
     public string TelephonePortable { get; set; } = string.Empty;
     public string Service { get; set; } = string.Empty;
-    public string Site { get; set; } = string.Empty;
+    public string Siege { get; set; } = string.Empty;
 }

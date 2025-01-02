@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyAnnuaireModel.Context;
 
@@ -11,9 +12,11 @@ using MyAnnuaireModel.Context;
 namespace MyAnnuaireModel.Migrations
 {
     [DbContext(typeof(MyAnnuaireContext))]
-    partial class MyAnnuaireContextModelSnapshot : ModelSnapshot
+    [Migration("20250102202945_UpdateDBB")]
+    partial class UpdateDBB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
