@@ -72,7 +72,7 @@ namespace MyAnnuaireModel.Controllers
             return await _context.Sieges
                 .Include(a => a.Ville)
                 .Include(a => a.TypeSiege)
-                .Where(Siege => Siege.Ville.Name == Siegename)
+                .Where(Siege => EF.Functions.Like(Siege.Ville.Name, $"%{Siegename}%"))
                 .Select(Siege => new SiegeDto
                 {
                     Id = Siege.Id,
@@ -94,8 +94,6 @@ namespace MyAnnuaireModel.Controllers
             }
 
             var Siege = await _context.Sieges
-                .Include(a => a.Ville)
-                .Include(a => a.TypeSiege)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
             if (SiegePUT == null)

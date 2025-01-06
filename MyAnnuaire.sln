@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnnuaireModel", "MyAnnuaireModel\MyAnnuaireModel.csproj", "{49F54FDC-8F0B-430C-B428-EB322A9A3584}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAnnuaireModel", "MyAnnuaireModel\MyAnnuaireModel.csproj", "{49F54FDC-8F0B-430C-B428-EB322A9A3584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnnuaireAPI", "MyAnnuaireAPI\MyAnnuaireAPI.csproj", "{B8D62754-5912-4136-9C6D-0D21403C48DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAnnuaireAPI", "MyAnnuaireAPI\MyAnnuaireAPI.csproj", "{B8D62754-5912-4136-9C6D-0D21403C48DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnnuaireWPF", "MyAnnuaireWPF\MyAnnuaireWPF.csproj", "{990601E3-9E19-41D8-93C9-40E4541001D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B8D62754-5912-4136-9C6D-0D21403C48DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D62754-5912-4136-9C6D-0D21403C48DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D62754-5912-4136-9C6D-0D21403C48DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{990601E3-9E19-41D8-93C9-40E4541001D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990601E3-9E19-41D8-93C9-40E4541001D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990601E3-9E19-41D8-93C9-40E4541001D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990601E3-9E19-41D8-93C9-40E4541001D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

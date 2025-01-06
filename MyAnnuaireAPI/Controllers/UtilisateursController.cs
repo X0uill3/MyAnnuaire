@@ -4,6 +4,7 @@ using MyAnnuaireModel.Context;
 using MyAnnuaireModel.Dto;
 using MyAnnuaireModel.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace MyAnnuaireAPI.Controllers
 {
@@ -160,6 +161,29 @@ namespace MyAnnuaireAPI.Controllers
         {
             return _context.Utilisateurs.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        [Route("auth/login")]
+        public async Task<ActionResult<UtilisateurDto>> VerifyUsernameAndPassword([FromBody] Utilisateur loginRequest)
+        {
+            var utilisateur = await _context.Utilisateurs
+                .Where(user => user.login == loginRequest.login)
+                .Where(user => user.EstAdmin == true)
+                .FirstOrDefaultAsync();
+
+            if (utilisateur == null)
+            {
+                return Unauthorized(new { message = "Utilisateur non trouvé." });
+            }
+
+            if (utilisateur.password != loginRequest.password)
+            {
+                return Unauthorized(new { message = "Mot de passe incorrect." });
+            }
+
+            return Ok();
+        }
+
 
     }
 

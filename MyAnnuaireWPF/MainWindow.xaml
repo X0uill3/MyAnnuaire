@@ -1,0 +1,43 @@
+﻿<Window x:Class="MyAnnuaireWPF.MainWindow"
+        KeyDown="Rechercher_KeyDown"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MyAnnuaire" Height="600" Width="800">
+    <Grid>
+        <!-- Define Rows and Columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation Bar -->
+        <DockPanel Grid.Row="0" Background="#f2f2f2" Grid.ColumnSpan="2">
+            <Image Source="D:\CESI\myAnnuaire\logo.png" 
+            Height="50" Margin="5" Stretch="Uniform" DockPanel.Dock="Left" MouseLeftButtonDown="Open_Accueil"/>
+
+            <Menu x:Name="MenuNavigation" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                <MenuItem Header="Environnement" x:Name="Environnement" Visibility="Collapsed">
+                    <MenuItem Header="Liste des salariés" Click="Open_Salarie"/>
+                    <MenuItem Header="Liste des sièges" Click="Open_Siege" />
+                    <MenuItem Header="Liste des types de sièges" Click="Open_TypeSiege"/>
+                    <MenuItem Header="Liste des pays" Click="Open_Pays"/>
+                    <MenuItem Header="Liste des villes" Click="Open_Ville"/>
+                    <MenuItem Header="Liste des services" Click="Open_Service"/>
+                    <MenuItem Header="Liste des utilisateurs" Click="Open_Utilisateur"/>
+                </MenuItem>
+                <MenuItem Header="Rechercher" Click="Open_Rechercher"/>
+
+            </Menu>
+        </DockPanel>
+        
+        <!-- ContentControl -->
+        <ContentControl x:Name="ContentArea" Grid.Row="1" Margin="5" Background="White" />
+
+        <!-- ProgressBar de chargement visible au lancement -->
+        <ProgressBar Grid.Row="1" Name="ProgressBarLoading" Height="20" Width="250" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Minimum="0" Maximum="100" Value="0" Visibility="Visible" IsIndeterminate="True" />
+    </Grid>
+</Window>

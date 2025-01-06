@@ -26,6 +26,7 @@ namespace MyAnnuaireModel.Controllers
             var Salaries = await _context.Salaries
                 .Include(a => a.Siege)
                 .Include(a => a.Service)
+                .OrderBy(a => a.Id)
                 .Select(Salarie => new SalarieDto
                 {
                     Id = Salarie.Id,
@@ -35,7 +36,9 @@ namespace MyAnnuaireModel.Controllers
                     TelephoneFixe = Salarie.TelephoneFixe,
                     TelephonePortable = Salarie.TelephonePortable,
                     Service = Salarie.Service.Name,
+                    ServiceId = Salarie.Service.Id,
                     Siege = Salarie.Siege.Ville.Name,
+                    SiegeId = Salarie.Siege.Id,
                 })
                 .ToListAsync();
 
@@ -70,23 +73,30 @@ namespace MyAnnuaireModel.Controllers
         }
 
 
-        // GET: api/Salaries/5
+        // GET: api/Salaries/search/{Salariename}
         [HttpGet]
         [Route("search/{Salariename}")]
         public async Task<ActionResult<IEnumerable<SalarieDto>>> GetSalarieByName(string Salariename)
         {
             return await _context.Salaries
-                .Where(Salarie => Salarie.Nom == Salariename)
-                .Select(Salarie => new SalarieDto
+                .Include(s => s.Service)
+                .Include(s => s.Siege)
+                .ThenInclude(s => s.Ville)
+                .Where(s => EF.Functions.Like(s.Nom, $"%{Salariename}%") ||
+                            EF.Functions.Like(s.Service.Name, $"%{Salariename}%") ||
+                            EF.Functions.Like(s.Siege.Ville.Name, $"%{Salariename}%"))
+                .Select(s => new SalarieDto
                 {
-                    Id = Salarie.Id,
-                    Nom = Salarie.Nom,
-                    Prenom = Salarie.Prenom,
-                    Email = Salarie.Email,
-                    TelephoneFixe = Salarie.TelephoneFixe,
-                    TelephonePortable = Salarie.TelephonePortable,
-                    Service = Salarie.Service.Name,
-                    Siege = Salarie.Siege.Ville.Name,
+                    Id = s.Id,
+                    Nom = s.Nom,
+                    Prenom = s.Prenom,
+                    Email = s.Email,
+                    TelephoneFixe = s.TelephoneFixe,
+                    TelephonePortable = s.TelephonePortable,
+                    Service = s.Service.Name,
+                    ServiceId = s.Service.Id,
+                    Siege = s.Siege.Ville.Name,
+                    SiegeId = s.Siege.Id,
                 }).ToListAsync();
         }
 

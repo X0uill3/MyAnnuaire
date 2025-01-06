@@ -60,7 +60,7 @@ namespace MyAnnuaireModel.Controllers
         public async Task<ActionResult<IEnumerable<ServiceDto>>> GetServiceByName(string Servicename)
         {
             return await _context.Services
-                .Where(Service => Service.Name == Servicename)
+                .Where(Service => EF.Functions.Like(Service.Name, $"%{Servicename}%"))
                 .Select(Service => new ServiceDto
                 {
                     Id = Service.Id,

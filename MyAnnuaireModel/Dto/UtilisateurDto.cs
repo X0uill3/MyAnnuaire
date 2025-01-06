@@ -12,4 +12,5 @@ public class UtilisateurDto
     public string login { get; set; } = string.Empty;
     public string password { get; set; } = string.Empty;
     public bool EstAdmin { get; set; }
+    public string Discriminator { get; set; } = string.Empty;
 }
