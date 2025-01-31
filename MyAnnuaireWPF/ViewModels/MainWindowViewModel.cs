@@ -95,7 +95,7 @@ public class MainWindowViewModel
     }
     public UserControl OpenLogin(KeyEventArgs e)
     {
-        // Vérifie si Ctrl + V est pressé
+        // Vérifie si Ctrl + T est pressé
         if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Key == Key.T)
         {
             var mainWindow = Application.Current.MainWindow as MainWindow;
